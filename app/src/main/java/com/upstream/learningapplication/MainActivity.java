@@ -12,7 +12,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 
     public void startBackgroundService(View view) {
@@ -23,5 +22,10 @@ public class MainActivity extends AppCompatActivity {
     public void stopBackgroundService(View view) {
         Intent intent = new Intent(this,MyBackgroundService.class);
         stopService(intent);
+    }
+
+    public void startIntentService(View view) {
+        Intent intent = new Intent(this,MyIntentService.class);
+        startService(intent);
     }
 }
