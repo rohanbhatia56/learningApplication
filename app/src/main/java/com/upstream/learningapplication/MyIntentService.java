@@ -3,6 +3,7 @@ package com.upstream.learningapplication;
 import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -20,6 +21,7 @@ public class MyIntentService extends IntentService {
     @Override
     public void onCreate() {
         super.onCreate();
+        Toast.makeText(this, "Task Execution Starts", Toast.LENGTH_SHORT).show();
         Log.i(TAG,"onCreate, Thread name: " + Thread.currentThread().getName());
     }
 
@@ -51,6 +53,7 @@ public class MyIntentService extends IntentService {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        Toast.makeText(this, "Task Execution finishes", Toast.LENGTH_SHORT).show();
         Log.i(TAG,"onDestroy, Thread name: " + Thread.currentThread().getName());
     }
 }
