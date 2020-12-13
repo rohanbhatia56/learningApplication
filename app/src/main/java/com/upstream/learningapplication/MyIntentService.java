@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class MyIntentService extends IntentService {
 
@@ -25,11 +26,12 @@ public class MyIntentService extends IntentService {
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
         //Write code here..
+        int duration = intent.getIntExtra("sleepTime",-1);
         Log.i(TAG,"onHandleIntent, Thread name: " + Thread.currentThread().getName());
         //write long operation here
         int ctr = 1;
         //long dummy operation
-        while (ctr<=12){
+        while (ctr<=duration){
             Log.i(  TAG,"Time elapsed: " + ctr + " secs");
             try {
                 Thread.sleep(1000);
@@ -38,6 +40,11 @@ public class MyIntentService extends IntentService {
             }
             ctr++;
         }
+
+        Intent localIntent = new Intent("my.own.broadcast");
+        localIntent.putExtra("result",ctr);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(localIntent);
+
 
     }
 

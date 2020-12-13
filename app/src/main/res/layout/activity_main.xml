@@ -39,5 +39,14 @@
         android:onClick="startIntentService"
         android:text="Start Intent Service" />
 
+    <TextView
+        android:id="@+id/txtResults"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignTop="@+id/btnStartStartedService"
+        android:layout_marginTop="266dp"
+        android:onClick="startIntentService"
+        android:text="Result to display" />
 
 </RelativeLayout>

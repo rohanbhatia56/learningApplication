@@ -21,6 +21,7 @@ public class MyBackgroundService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG,"onStartCommand, Thread name: "+ Thread.currentThread().getName());
+//        int duration = intent.getIntExtra("key",0);
         //Perform tasks: Dummy long operation
         new MyAsyncTask().execute(); //Background thread
         return START_STICKY;
